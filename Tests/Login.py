@@ -7,6 +7,7 @@ from pages.homePage import HomePage
 
 class LoginTest(unittest.TestCase):
 
+
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
@@ -16,23 +17,16 @@ class LoginTest(unittest.TestCase):
     def test_login_valid(self):
         driver = self.driver
 
-        driver.get("https://opensource-demo.orangehrmlive.com/index.php/dashboard")
+        driver.get("https://www.saucedemo.com/")
 
         login = LoginPage(driver)
-        login.enter_username("Admin")
-        login.enter_password("admin123")
+        login.enter_username("standard_user")
+        login.enter_password("secret_sauce")
         login.click_login()
 
         homepage =HomePage(driver)
         homepage.click_welcome()
         homepage.click_logout()
-
-        # self.driver.find_element_by_id("txtUsername").send_keys("Admin")
-        # self.driver.find_element_by_id("txtPassword").send_keys("admin123")
-        # self.driver.find_element_by_id("btnLogin").click()
-        # self.driver.find_element_by_id("welcome").click()
-        # self.driver.find_element_by_link_text("Logout").click()
-        time.sleep(2)
 
     @classmethod
     def tearDownClass(cls):
