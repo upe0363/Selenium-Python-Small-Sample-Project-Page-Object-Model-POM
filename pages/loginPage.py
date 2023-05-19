@@ -1,5 +1,4 @@
 from Locators.locators import Locators
-
 class LoginPage():
 
     def __init__(self, driver):
@@ -7,7 +6,7 @@ class LoginPage():
 
         self.username_textbox_id = Locators.username_textbox_id
         self.password_textbox_id = "txtPassword"
-        self.login_button_id     = "btnLogin"
+        self.login_button_id = "btnLogin"
 
     def enter_username(self, username):
         self.driver.find_element_by_id(self.username_textbox_id).clear()
